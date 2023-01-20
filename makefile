@@ -6,7 +6,7 @@
 #    By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/19 13:35:22 by samusanc          #+#    #+#              #
-#    Updated: 2023/01/19 13:35:28 by samusanc         ###   ########.fr        #
+#    Updated: 2023/01/20 16:13:09 by samusanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,8 +61,7 @@ RESET	=	\033[0m
 all		: 	$(NAME)
 
 $(NAME)	: 	$(OBJ)
-			@$(CC) -c $(SRC) $(CFLAGS) -I includes/
-			@$(AR) $@ $^
+			$(AR) $@ $^
 main.o	:	$(MAIN)
 			@$(CC) $(CFLAGS) -c $(MAIN)
 $(OUT)	: 	$(NAME) main.o
