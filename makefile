@@ -6,7 +6,7 @@
 #    By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/19 13:35:22 by samusanc          #+#    #+#              #
-#    Updated: 2023/01/20 16:13:09 by samusanc         ###   ########.fr        #
+#    Updated: 2023/01/20 16:33:47 by samusanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CC		= 	gcc
 OUT		= 	adeu
 AR		=	ar rcs 
 L		=	main.o -L. -lft
-OF		=	*.c makefile libft.h
+OF		=	*.c Makefile libft.h
 
 GA		=	git add
 GC		=	git commit -m "subiendo prueba"
@@ -66,7 +66,7 @@ main.o	:	$(MAIN)
 			@$(CC) $(CFLAGS) -c $(MAIN)
 $(OUT)	: 	$(NAME) main.o
 			@$(CC) $(CFLAGS) -o $(OUT) $(L)
-#			@$(GA) $(OF)
+			@$(GA) $(OF)
 
 #CLEAN
 clean	:
@@ -75,7 +75,7 @@ clean	:
 fclean	:
 			@rm -f $(OBJ) $(NAME) $(OUT) main.o
 			@echo "$(MAGENTA)===> all clean$(MAGENTA)"
-#			@$(GC)
+			@$(GC)
 
 #GIT
 add		:
@@ -86,3 +86,5 @@ commit	:
 #Normi
 normi	:
 			@norminette $(NFILES)
+
+re		:	fclean $(NAME)
