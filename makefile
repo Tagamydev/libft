@@ -19,7 +19,7 @@ CC		= 	gcc
 OUT		= 	adeu
 AR		=	ar rcs 
 L		=	main.o -L. -lft
-OF		=	*.c Makefile libft.h
+OF		=	*.c makefile libft.h
 
 GA		=	git add
 GC		=	git commit -m "subiendo prueba"
