@@ -29,5 +29,4 @@ size_t			ft_strlcpy(char *d, const char *s, size_t z);
 size_t			ft_strlcat(char *d, const char *s, size_t z);
 unsigned long	ft_strlen(char *str);
 
-
 #endif
