@@ -13,10 +13,24 @@
 #include<unistd.h>
 #include<stdio.h>
 
+int	ft_naruto2(char *str, int i, int r)
+{
+	while ((str[i] >= 48 && str[i] <= 57) && str[i] != '\e')
+	{
+		r = (r * 10) + (str[i] - '0');
+		++i;
+	}
+	return (r);
+}
+
 int	ft_naruto(char *str, int i, int signo, int r)
 {
 	while (str[i] <= 32)
-			++i;
+	{
+		if (str[i] == '\e')
+			return (0);
+		++i;
+	}
 	while (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
@@ -31,11 +45,7 @@ int	ft_naruto(char *str, int i, int signo, int r)
 			break ;
 		}
 	}
-	while (str[i] >= 48 && str[i] <= 57)
-	{
-		r = (r * 10) + (str[i] - '0');
-		++i;
-	}
+	r = ft_naruto2(str, i, r);
 	return (r * signo);
 }
 
