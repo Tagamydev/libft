@@ -24,6 +24,7 @@ void	*ft_memmove(void *str1, const void *str2, size_t n)
 	if (n <= 0)
 		return (str1);
 	n = n -1;
+#en vez de hacer de 0 a lo que sea haz de lo que sea a cero restando
 	while (i <= n)
 	{
 		(str1c[i] = str2c[i]);
