@@ -25,7 +25,6 @@ GA		=	git add
 GC		=	git commit -m "subiendo prueba"
 
 CFLAGS	= 	-Wextra -Werror -Wall 
-NFILES	= 	$(filter-out $(MAIN), $(wildcard *.c)) $(HFILES)
 SRC		= \
 			ft_isalpha.c \
 			ft_isdigit.c \
@@ -69,7 +68,6 @@ main.o	:	$(MAIN)
 			@$(CC) $(CFLAGS) -c $(MAIN) -o ../libft/main.o
 $(OUT)	: 	$(NAME) main.o
 			@$(CC) $(CFLAGS) -o $(OUT) $(L)
-#			@$(GA) $(OF)
 
 #CLEAN
 clean	:
@@ -78,16 +76,11 @@ clean	:
 fclean	:
 			@rm -f $(OBJ) $(NAME) $(OUT) main.o $(MAIN)
 			@echo "$(MAGENTA)===> all clean$(MAGENTA)"
-#			@$(GC)
 
 #GIT
 add		:
 			@$(GA) $(OF)
 commit	:
 			@$(GC)
-
-#Normi
-normi	:
-			@norminette $(NFILES)
 
 re		:	fclean all
