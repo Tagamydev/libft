@@ -15,15 +15,21 @@
 void	*ft_memmove(void *str1, const void *str2, size_t n)
 {
 	size_t	i;
+	char	*str1c;
+	char	*str2c;
 
 	i = 0;
+	str1c = (char*)str1;
+	str2c = (char*)str2;
+	if (n <= 0)
+		return (str1);
 	n = n -1;
 	while (i <= n)
 	{
-		((unsigned char *)str1)[i] = ((unsigned const char *)str2)[i];
+		(str1c[i] = str2c[i]);
 		++i;
 	}
-	if (((unsigned char *)str1)[i] == '\0')
-		((unsigned char *)str1)[i] = '\0';
+	if (str1c[i] == '\0')
+		str1c[i] = '\0';
 	return (str1);
 }
