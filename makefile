@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-MAIN	= 	main.c
+MAIN	= 	../main/main.c
 HFILES	= 	libft.h
 NAME 	= 	libft.a
 
@@ -63,7 +63,7 @@ all		: 	$(NAME)
 $(NAME)	: 	$(OBJ)
 			$(AR) $@ $^
 main.o	:	$(MAIN)
-			@$(CC) $(CFLAGS) -c $(MAIN)
+			@$(CC) $(CFLAGS) -c $(MAIN) -o ../libft/main.o
 $(OUT)	: 	$(NAME) main.o
 			@$(CC) $(CFLAGS) -o $(OUT) $(L)
 #			@$(GA) $(OF)
