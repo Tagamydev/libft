@@ -76,6 +76,7 @@ fclean	:
 			@rm -f $(OBJ) $(NAME) $(OUT) main.o
 			@echo "$(MAGENTA)===> all clean$(MAGENTA)"
 			@$(GC)
+re		:	fclean $(NAME)
 
 #GIT
 add		:
@@ -87,4 +88,4 @@ commit	:
 normi	:
 			@norminette $(NFILES)
 
-re		:	fclean $(NAME)
+
