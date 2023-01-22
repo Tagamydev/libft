@@ -10,7 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
-MAIN	= 	../main/main.c
+OMAIN	=	../main/main.c
+MAIN	= 	main.c
 HFILES	= 	libft.h
 NAME 	= 	libft.a
 
@@ -58,8 +59,10 @@ CYAN	=	\033[0;36m
 RESET	=	\033[0m
 
 #ALL
-all		: 	$(NAME)
+all		: 	$(OUT)
 
+$(MAIN)		:	$(OMAIN)
+			cp $(OMAIN) ./
 $(NAME)	: 	$(OBJ)
 			$(AR) $@ $^
 main.o	:	$(MAIN)
@@ -73,7 +76,7 @@ clean	:
 			@rm -f $(OBJ)
 			@echo "$(MAGENTA)===> objects have been removed$(MAGENTA)"
 fclean	:
-			@rm -f $(OBJ) $(NAME) $(OUT) main.o
+			@rm -f $(OBJ) $(NAME) $(OUT) main.o $(MAIN)
 			@echo "$(MAGENTA)===> all clean$(MAGENTA)"
 #			@$(GC)
 
