@@ -66,7 +66,7 @@ main.o	:	$(MAIN)
 			@$(CC) $(CFLAGS) -c $(MAIN)
 $(OUT)	: 	$(NAME) main.o
 			@$(CC) $(CFLAGS) -o $(OUT) $(L)
-			@$(GA) $(OF)
+#			@$(GA) $(OF)
 
 #CLEAN
 clean	:
@@ -75,8 +75,7 @@ clean	:
 fclean	:
 			@rm -f $(OBJ) $(NAME) $(OUT) main.o
 			@echo "$(MAGENTA)===> all clean$(MAGENTA)"
-			@$(GC)
-re		:	fclean $(NAME)
+#			@$(GC)
 
 #GIT
 add		:
@@ -88,4 +87,4 @@ commit	:
 normi	:
 			@norminette $(NFILES)
 
-
+re		:	fclean all
