@@ -23,10 +23,9 @@ void	*ft_memmove(void *str1, const void *str2, size_t n)
 	i = n;
 	str1c = (char*)str1;
 	str2c = (char*)str2;
-	while((int)(--i) >= 0)
+	while ((int)(--i) >= 0)
 	{
 		str1c[i] = str2c[i];
-		printf("%zu", i);
 	}
 	if(n > ft_strlen(str1c))
 		str1c[n] = 0;		
