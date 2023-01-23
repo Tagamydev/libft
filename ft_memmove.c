@@ -14,7 +14,7 @@
 
 void	*ft_memmove(void *str1, const void *str2, size_t n)
 {
-	int	i;
+	int		i;
 	size_t	b;
 
 	b = 0;
@@ -24,13 +24,13 @@ void	*ft_memmove(void *str1, const void *str2, size_t n)
 	{
 		i = -1;
 		while (++i < (int)n)
-			*(char*)(str1 + i) = *(char*)(str2 + i);
+			*(char *)(str1 + i) = *(char *)(str2 + i);
 	}
 	else
 	{
 		i = (int)n;
 		while (--i >= 0)
-			*(char*)(str1 + i) = *(char*)(str2 + i);
+			*(char *)(str1 + i) = *(char *)(str2 + i);
 	}
 	return (str1);
 }
