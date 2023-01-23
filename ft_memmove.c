@@ -12,45 +12,23 @@
 #include<stdio.h>
 #include<unistd.h>
 
-unsigned long	ft_strlen(char *str);
-
 void	*ft_memmove(void *str1, const void *str2, size_t n)
 {
-	size_t	i;
-	char	*str1c;
-	char	*str2c;
+	int	i;
 
-	i = n;
-	str1c = (char*)str1;
-	str2c = (char*)str2;
-	while ((int)(--i) >= 0)
+	if (!str1 || !str2)
+		return (NULL);
+	if (str1 < str2)
 	{
-		str1c[i] = str2c[i];
+		i = -1;
+		while (++i < (int)n)
+			*(char*)(str1 + i) = *(char*)(str2 + i);
 	}
-	if(n > ft_strlen(str1c))
-		str1c[n] = 0;		
+	else
+	{
+		i = (int)n;
+		while (--i >= 0)
+			*(char*)(str1 + i) = *(char*)(str2 + i);
+	}
 	return (str1);
 }
-
-// void	*ft_memmove(void *str1, const void *str2, size_t n)
-// {
-// 	size_t	i;
-// 	char	*str1c;
-// 	char	*str2c;
-
-// 	i = 0;
-// 	str1c = (char*)str1;
-// 	str2c = (char*)str2;
-// 	if (n <= 0)
-// 		return (str1);
-// 	n = n -1;
-// //en vez de hacer de 0 a lo que sea haz de lo que sea a cero restando
-// 	while (i <= n)
-// 	{
-// 		(str1c[i] = str2c[i]);
-// 		++i;
-// 	}
-// 	if (str1c[i] == '\0')
-// 		str1c[i] = '\0';
-// 	return (str1);
-// }
