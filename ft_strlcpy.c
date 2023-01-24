@@ -11,32 +11,33 @@
 /* ************************************************************************** */
 #include<unistd.h>
 
-size_t	ft_count(const char *restrict str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		++i;
-	return (i);
-}
+unsigned long	ft_strlen(char *str);
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t	i;
+	int				i;
+	unsigned long	len;
 
-	i = 0;
-	if (dstsize == 0)
-		return (ft_count(src));
-	else
-	{	
-		dstsize = dstsize - 1;
-		while (i < dstsize)
+	len = ft_strlen((char *)src);
+	if (dstsize != 0)
+	{
+		if (dst > src)
 		{
-			dst[i] = src[i];
-			++i;
+			i = -1;
+			while (++i < (int)(dstsize - 1) && i < (int)(len))
+				*(char *)(dst + i) = *(const char *)(src + i);
+			*(char *)(dst + i) = '\0';
+			return (len);
 		}
-		dst[i] = '\0';
+		else
+		{
+			i = -1;
+			while (++i < (int)(dstsize - 1) && i < (int)(len))
+				*(char *)(dst + i - 1) = *(const char *)(src + i);
+			*(char *)(dst + i) = '\0';
+			return (0);
+		}
 	}
-	return (ft_count(src));
+	else
+		return (len);
 }
