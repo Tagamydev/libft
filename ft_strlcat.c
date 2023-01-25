@@ -13,12 +13,12 @@
 
 unsigned long	ft_strlen(char *str);
 
-size_t	strlcat(char *dst, const char *src, size_t dstsize)
-{
-	int	dstl;
+// size_t	strlcat(char *dst, const char *src, size_t dstsize)
+// {
+// 	int	dstl;
 	
-	if (dstsize <= dstl)
-		return (dstl + src);
-	dstl = (int)(ft_strlen((char *)(dst)));
-	return (dstl + src);
-}
+// 	if (dstsize <= dstl)
+// 		return (dstl + src);
+// 	dstl = (int)(ft_strlen((char *)(dst)));
+// 	return (dstl + src);
+// }
