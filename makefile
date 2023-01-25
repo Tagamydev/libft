@@ -43,6 +43,7 @@ SRC		= \
 			ft_strlen.c \
 			ft_strlcat.c \
 			ft_strlcpy.c \
+			ft_tolower.c \
 
 OBJ		= 	$(SRC:.c=.o)
 
