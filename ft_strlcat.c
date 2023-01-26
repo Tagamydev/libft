@@ -13,12 +13,27 @@
 
 unsigned long	ft_strlen(char *str);
 
-size_t	ft_strlcat(char *d, const char* src, size_t i)
+void	ft_chng_str(int i, int i3, char *s, char *d)
+{
+	int		i4;
+	int		i2;
+
+	i2 = (int)(ft_strlen(d) + ft_strlen(s));
+	i4 = i2 - (int)ft_strlen(s);
+	while (i4 < (int)i - 1 && i3 < (int)(ft_strlen(s)))
+	{
+		d[i4] = s[i3];
+		++i4;
+		++i3;
+	}
+	d[i4] = '\0';
+}
+
+size_t	ft_strlcat(char *d, const char *src, size_t i)
 {
 	char	*s;
 	int		i2;
 	int		i3;
-	int		i4;
 
 	s = (char *)src;
 	if (!i)
@@ -27,14 +42,7 @@ size_t	ft_strlcat(char *d, const char* src, size_t i)
 	i3 = 0;
 	if (i > ft_strlen(d))
 	{
-		i4 = i2 - (int)ft_strlen(s);
-		while (i4 < (int)i - 1 && i3 < (int)(ft_strlen(s)))
-		{
-			d[i4] = s[i3];
-			++i4;
-			++i3;
-		}
-		d[i4] = '\0';
+		ft_chng_str(i, i3, s, d);
 		return (i2);
 	}
 	else if (i == 0)
