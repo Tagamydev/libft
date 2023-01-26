@@ -9,33 +9,37 @@
 /*   Updated: 2023/01/17 16:25:44 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include<unistd.h>
+#include<stdio.h>
 
 unsigned long	ft_strlen(char *str);
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcat(char *d, const char* src, size_t i)
 {
-	int	dstl;
-	int	i;
-	int	i2;
+	char	*s;
+	int		i2;
+	int		i3;
+	int		i4;
 
-	dstl = (int)ft_strlen((char *)dst);
-	if(dstsize == 0)
-		return ((int)ft_strlen((char *)src));
-	if ((int)dstsize <= dstl)
-		return (dstl + (int)ft_strlen((char *)src));
-	else
+	s = (char *)src;
+	if (!i)
+		return (ft_strlen(s));
+	i2 = (int)(ft_strlen(d) + ft_strlen(s));
+	i3 = 0;
+	if (i > ft_strlen(d))
 	{
-		i = dstl;
-		i2 = 0;
-		while (i < (int)(dstsize - 1))
+		i4 = i2 - (int)ft_strlen(s);
+		while (i4 < (int)i - 1 && i3 < (int)(ft_strlen(s)))
 		{
-			*(char *)(dst + i) = *(char *)(src + i2);
-			++i2;
-			++i;
+			d[i4] = s[i3];
+			++i4;
+			++i3;
 		}
-		*(char *)(dst + i) = '\0';
-		return (dstl + (int)ft_strlen((char *)src));
+		d[i4] = '\0';
+		return (i2);
 	}
-	return (dstl + (int)ft_strlen((char *)src));
+	else if (i == 0)
+	{
+		return (ft_strlen(s));
+	}
+	return (ft_strlen(s) + i);
 }
