@@ -45,6 +45,7 @@ SRC		= \
 			ft_strlcpy.c \
 			ft_tolower.c \
 			ft_calloc.c \
+			ft_strchr.c \
 
 OBJ		= 	$(SRC:.c=.o)
 
