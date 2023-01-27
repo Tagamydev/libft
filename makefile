@@ -48,6 +48,7 @@ SRC		= \
 			ft_strchr.c \
 			ft_strrchr.c \
 			ft_strncmp.c \
+			ft_strnstr.c \
 
 OBJ		= 	$(SRC:.c=.o)
 
