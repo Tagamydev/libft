@@ -65,7 +65,7 @@ CYAN	=	\033[0;36m
 RESET	=	\033[0m
 
 #ALL
-all		: 	$(NAME)
+all		: 	$(OUT)
 
 $(MAIN)		:	$(OMAIN)
 			cp $(OMAIN) ./
