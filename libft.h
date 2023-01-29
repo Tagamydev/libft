@@ -31,6 +31,7 @@ void			*ft_bzero(void *s, size_t n);
 void			*ft_memcpy(void *dest, const void *src, size_t n);
 void			*ft_memmove(void *str1, const void *str2, size_t n);
 void			*ft_calloc(size_t count, size_t size);
+void			*ft_memchr(const void *s, int c, size_t n);
 size_t			ft_strlcpy(char *d, const char *s, size_t z);
 size_t			ft_strlcat(char *d, const char *s, size_t z);
 unsigned long	ft_strlen(char *str);

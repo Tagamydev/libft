@@ -49,6 +49,7 @@ SRC		= \
 			ft_strrchr.c \
 			ft_strncmp.c \
 			ft_strnstr.c \
+			ft_memchr.c \
 
 OBJ		= 	$(SRC:.c=.o)
 
@@ -64,7 +65,7 @@ CYAN	=	\033[0;36m
 RESET	=	\033[0m
 
 #ALL
-all		: 	$(OUT)
+all		: 	$(NAME)
 
 $(MAIN)		:	$(OMAIN)
 			cp $(OMAIN) ./
