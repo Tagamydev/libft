@@ -16,14 +16,14 @@ int				ft_strncmp(const char *s1, const char *s2, size_t n);
 
 unsigned long	ft_strlen(char *str);
 
-char	*ft_strnstr(const char	*abuscar, const char *buscando, size_t len)
+char	*ft_strnstr(const char	*big, const char *little, size_t len)
 {
 	char	*a;
 	char	*b;
 	int		i;
 
-	a = (char *)abuscar;
-	b = (char *)buscando;
+	a = (char *)big;
+	b = (char *)little;
 	i = 0;
 	if (*b == '\0')
 		return (a);
