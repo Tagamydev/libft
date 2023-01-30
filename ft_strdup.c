@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+        */
+/*   By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/29 14:23:09 by samusanc          #+#    #+#             */
-/*   Updated: 2023/01/29 14:23:11 by samusanc         ###   ########.fr       */
+/*   Created: 2023/01/30 14:45:19 by samusanc          #+#    #+#             */
+/*   Updated: 2023/01/30 14:45:22 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <stdio.h>
 
-void	*ft_memchr(const void *s, int c, size_t n)
+unsigned long	ft_strlen(char *str);
+
+char	*ft_strdup(const char *s1)
 {
-	unsigned char	*sc;
-	int				i;
+	char	*str;
+	int		i;
 
 	i = 0;
-	sc = (unsigned char *)s;
-	if (n != 0)
-	{		
-		while (i < (int)n)
-		{
-			if (*sc == (unsigned char)c)
-				return (sc);
-			++i;
-			++sc;
-		}
+	str = (char *)malloc(sizeof(*s1) * (ft_strlen(s1) + 1));
+	if (!s1 || !str)
+		return (0);
+	while (i < (int)ft_strlen(s1))
+	{
+		str[i] = s1[i];
+		i++;
 	}
-	return (0);
+	str[i] = '\0';
+	return (str);
 }
