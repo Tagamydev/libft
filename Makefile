@@ -52,6 +52,7 @@ SRC		= \
 			ft_memchr.c \
 			ft_memcmp.c \
 			ft_strdup.c \
+			ft_substr.c \
 
 OBJ		= 	$(SRC:.c=.o)
 
