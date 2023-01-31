@@ -18,7 +18,7 @@ NAME 	= 	libft.a
 CC		= 	gcc
 OUT		= 	adeu
 AR		=	ar rcs 
-L		=	main.o -L. -lft
+
 OF		=	*.c makefile libft.h
 
 GA		=	git add
@@ -55,6 +55,7 @@ SRC		= \
 
 OBJ		= 	$(SRC:.c=.o)
 
+
 # COLORS
 
 BLACK	=	\033[0;30m
@@ -69,13 +70,15 @@ RESET	=	\033[0m
 #ALL
 all		: 	$(OUT)
 
-$(MAIN)		:	$(OMAIN)
+$(MAIN)	:	$(OMAIN)
 			cp $(OMAIN) ./
+
+MAINO	=	$(MAIN:.c=.o)
+L		=	main.o -L. -lft
+
 $(NAME)	: 	$(OBJ)
 			$(AR) $@ $^
-main.o	:	$(MAIN)
-			@$(CC) $(CFLAGS) -c $(MAIN) -o ../libft/main.o
-$(OUT)	: 	$(NAME) main.o
+$(OUT)	: 	$(NAME) $(MAINO)
 			@$(CC) $(CFLAGS) -o $(OUT) $(L)
 
 #CLEAN

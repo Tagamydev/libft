@@ -11,21 +11,24 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 unsigned long	ft_strlen(char *str);
 
 char	*ft_strdup(const char *s1)
 {
 	char	*str;
+	char	*s1c;
 	int		i;
 
 	i = 0;
-	str = (char *)malloc(sizeof(*s1) * (ft_strlen(s1) + 1));
+	s1c = (char *)s1;
+	str = (char *)malloc(sizeof(*s1c) * (ft_strlen(s1c) + 1));
 	if (!s1 || !str)
 		return (0);
-	while (i < (int)ft_strlen(s1))
+	while (i < (int)ft_strlen(s1c))
 	{
-		str[i] = s1[i];
+		str[i] = s1c[i];
 		i++;
 	}
 	str[i] = '\0';
