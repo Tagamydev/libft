@@ -24,7 +24,7 @@ OF		=	*.c makefile libft.h
 GA		=	git add
 GC		=	git commit -m "subiendo prueba"
 
-CFLAGS	= 	-Wextra -Werror -Wall 
+CFLAGS	= 	#-Wextra -Werror -Wall 
 SRC		= \
 			ft_isalpha.c \
 			ft_isdigit.c \
@@ -53,6 +53,8 @@ SRC		= \
 			ft_memcmp.c \
 			ft_strdup.c \
 			ft_substr.c \
+			ft_strjoin.c \
+			ft_split.c \
 
 OBJ		= 	$(SRC:.c=.o)
 

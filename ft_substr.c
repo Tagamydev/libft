@@ -12,10 +12,11 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 unsigned long	ft_strlen(char *str);
 
-char	*ft_ssfull(size_t len, char *sc, int i, char *str)
+static char	*ft_ssfull(size_t len, char *sc, int i, char *str)
 {
 	if (len > ft_strlen(sc))
 	{
@@ -45,9 +46,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	int		i;
 
 	i = 0;
-	if (len == 0)
-		return (0);
 	str = (malloc(len * sizeof(char)));
+	if (len == 0)
+		return (str);
 	if (!str || !s)
 		return (0);
 	sc = (char *)s;

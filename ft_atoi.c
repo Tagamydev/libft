@@ -13,7 +13,7 @@
 #include<unistd.h>
 #include<stdio.h>
 
-int	ft_naruto2(char *str, int i, int r)
+static int	ft_naruto2(char *str, int i, int r)
 {
 	while ((str[i] >= 48 && str[i] <= 57) && str[i] != '\e')
 	{
@@ -23,7 +23,7 @@ int	ft_naruto2(char *str, int i, int r)
 	return (r);
 }
 
-int	ft_naruto(char *str, int i, int signo, int r)
+static int	ft_naruto(char *str, int i, int signo, int r)
 {
 	while (str[i] <= 32)
 	{
