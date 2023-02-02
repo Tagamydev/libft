@@ -13,14 +13,14 @@
 
 unsigned long	ft_strlen(char *str);
 
-void	ft_chng_str(int i, int i3, char *s, char *d)
+static void	ft_chng_str(int i, int i3, const char *s, char *d)
 {
 	int		i4;
 	int		i2;
 
-	i2 = (int)(ft_strlen(d) + ft_strlen(s));
-	i4 = i2 - (int)ft_strlen(s);
-	while (i4 < (int)i - 1 && i3 < (int)(ft_strlen(s)))
+	i2 = (int)(ft_strlen(d) + ft_strlen((char *)s));
+	i4 = i2 - (int)ft_strlen((char *)s);
+	while (i4 < (int)i - 1 && i3 < (int)(ft_strlen((char *)s)))
 	{
 		d[i4] = s[i3];
 		++i4;

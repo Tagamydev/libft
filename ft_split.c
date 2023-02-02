@@ -6,6 +6,7 @@ static	char*ft_makestr(char *str, char c)
 {
 	int	i;
 	char *tmpstr;
+	i = 0;
 	while (str[i] != c && str[i] != 0)
 		++i;
 	tmpstr = (malloc(i * sizeof(char)));
