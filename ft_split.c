@@ -49,7 +49,6 @@ char	**ft_split(char const *s, char c)
 	char	*sc;
 
 	i = 1;
-
 	sc = (char *)s;
 	while (sc[0] != '\0')
 	{
@@ -57,8 +56,8 @@ char	**ft_split(char const *s, char c)
 			++i;
 		++sc;
 	}
-	if (i == 0)
-		i = 1;
+	if (i == 1)
+		i = 2;
 	strdstr = (malloc(i * sizeof(char *)));
 	if (!strdstr)
 		return (0);
