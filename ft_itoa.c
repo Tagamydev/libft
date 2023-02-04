@@ -29,5 +29,9 @@ char	*ft_itoa(int n)
 		++i;
 	}
 	str[i] = '\0';
+	if (n < 0)
+		return (str);
+	else
+		++str;
 	return (str);
 }
