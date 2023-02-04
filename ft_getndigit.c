@@ -16,6 +16,8 @@ int	ft_getndigit(int n, int i)
 	double	d;
 
 	a = 0;
+	if (n < 0)
+		n = n * -1;
 	if (i > ft_intlen(n))
 		return (0);
 	a = ft_powten(ft_intlen(n)) / ft_powten(i);
