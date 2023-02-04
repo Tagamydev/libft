@@ -12,10 +12,9 @@
 
 int	ft_powten(int n)
 {
-	int i;
+	int	i;
 	int	t;
 	int	t2;
-
 
 	i = 1;
 	t = 10;
