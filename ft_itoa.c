@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/05 10:52:52 by samusanc          #+#    #+#             */
+/*   Updated: 2023/02/05 10:52:55 by samusanc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "libft.h"
@@ -23,7 +35,7 @@ static int	ft_powten(int n)
 
 static int	ft_intlen(int n)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (n == 0)
@@ -59,20 +71,8 @@ static int	ft_getndigit(int n, int i)
 	return (n);
 }
 
-char	*ft_itoa(int n)
+static char	*ft_putstritoa(int i, int n, char *str)
 {
-	char *str;
-	int		i;
-
-	i = 0;
-	str = (malloc((ft_intlen(n)) * sizeof(char)));
-	if (!str)
-		return (0);
-	if (n < 0)
-		str[i] = '-';
-	else
-		str[i] = '+';
-	++i;
 	if (n < 0)
 	{
 		while (i != (ft_intlen(n) + 1))
@@ -91,5 +91,23 @@ char	*ft_itoa(int n)
 		}
 	}
 	str[i] = '\0';
+	return (str);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	int		i;
+
+	i = 0;
+	str = (malloc((ft_intlen(n) + 2) * sizeof(char)));
+	if (!str)
+		return (0);
+	if (n < 0)
+		str[i] = '-';
+	else
+		str[i] = '+';
+	++i;
+	str = ft_putstritoa(1, n, str);
 	return (str);
 }

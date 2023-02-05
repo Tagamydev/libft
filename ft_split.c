@@ -1,11 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/05 10:55:42 by samusanc          #+#    #+#             */
+/*   Updated: 2023/02/05 10:55:45 by samusanc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <stdlib.h>
+
 char	*ft_strchr(const char *s, int c);
 
-static	char*ft_makestr(char *str, char c)
+static char	*ft_makestr(char *str, char c)
 {
-	int	i;
-	char *tmpstr;
+	int		i;
+	char	*tmpstr;
+
 	i = 0;
 	while (str[i] != c && str[i] != 0)
 		++i;
@@ -24,14 +38,14 @@ static	char*ft_makestr(char *str, char c)
 
 static char	**ft_putstr(char **strdstr, char *str, int i, char c)
 {
-	int i2;
+	int	i2;
 
 	i2 = 0;
 	strdstr[i2] = ft_makestr(str + (i2), c);
 	++i2;
 	while (str[i] != '\0')
 	{
-		if(str[i] == c)
+		if (str[i] == c)
 		{
 			strdstr[i2] = ft_makestr(str + (i + 1), c);
 			++i2;

@@ -24,7 +24,7 @@ OF		=	*.c makefile libft.h
 GA		=	git add
 GC		=	git commit -m "subiendo prueba"
 
-CFLAGS	= 	#-Wextra -Werror -Wall 
+CFLAGS	= 	-Wextra -Werror -Wall -g3 -fsanitize=address
 SRC		= \
 			ft_isalpha.c \
 			ft_isdigit.c \
