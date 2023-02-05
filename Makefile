@@ -57,9 +57,6 @@ SRC		= \
 			ft_split.c \
 			ft_strtrim.c \
 			ft_itoa.c \
-			ft_intlen.c \
-			ft_powten.c \
-			ft_getndigit.c \
 
 OBJ		= 	$(SRC:.c=.o)
 
