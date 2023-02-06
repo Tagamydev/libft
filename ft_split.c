@@ -67,6 +67,8 @@ char	**ft_split(char const *s, char c)
 
 	i = 1;
 	sc = (char *)s;
+	if (!s)
+		return (0);
 	while (sc[0] != '\0')
 	{
 		if (sc[0] == c)

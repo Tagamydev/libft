@@ -30,6 +30,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i = 0;
 	i2 = 0;
 	i3 = 0;
+	if (!s1)
+		return (0);
 	str = (char *)s1;
 	while (s1[i] != '\0')
 	{

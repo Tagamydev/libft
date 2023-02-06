@@ -26,6 +26,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	s1c = (char *)s1;
 	s2c = (char *)s2;
+	if (!s1)
+		return (0);
 	str = malloc((ft_strlen(s2c) + ft_strlen(s1c)) * sizeof(char));
 	if (!str)
 		return (0);

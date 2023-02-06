@@ -12,6 +12,7 @@
 
 #include "libft.h"
 
+/*Envía el número ’n’ al file descriptor dado.*/
 void	ft_putnbr_fd(int n, int fd)
 {
 	long	nd;
