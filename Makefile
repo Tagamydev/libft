@@ -19,7 +19,7 @@ CC		= 	gcc
 OUT		= 	adeu
 AR		=	ar rcs 
 
-OF		=	*.c makefile libft.h
+OF		=	*.c Makefile libft.h
 
 GA		=	git add
 GC		=	git commit -m "subiendo prueba"
@@ -61,6 +61,7 @@ SRC		= \
 			ft_putnbr_fd.c \
 			ft_putstr_fd.c \
 			ft_putendl_fd.c \
+			ft_strmapi.c \
 
 OBJ		= 	$(SRC:.c=.o)
 
