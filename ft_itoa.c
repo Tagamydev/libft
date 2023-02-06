@@ -94,6 +94,9 @@ static char	*ft_putstritoa(int i, int n, char *str)
 	return (str);
 }
 
+/*Utilizando malloc(3), genera una string que
+represente el valor entero recibido como argumento.
+Los números negativos tienen que gestionarse.*/
 char	*ft_itoa(int n)
 {
 	char	*str;

@@ -1,7 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/06 14:55:06 by samusanc          #+#    #+#             */
+/*   Updated: 2023/02/06 14:55:10 by samusanc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "libft.h"
 
+/*Reserva (con malloc(3)) y devuelve una nueva
+string, formada por la concatenación de ’s1’ y
+’s2’.*/
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;

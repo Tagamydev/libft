@@ -1,7 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/06 14:55:42 by samusanc          #+#    #+#             */
+/*   Updated: 2023/02/06 14:55:43 by samusanc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "libft.h"
 
+/*Elimina todos los caracteres de la string ’set’
+desde el principio y desde el final de ’s1’, hasta
+encontrar un caracter no perteneciente a ’set’. La
+string resultante se devuelve con una reserva de
+malloc(3)*/
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*str;

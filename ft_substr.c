@@ -38,6 +38,10 @@ static char	*ft_ssfull(size_t len, char *sc, int i, char *str)
 	return (str);
 }
 
+/*Reserva (con malloc(3)) y devuelve una substring de
+la string ’s’.
+La substring empieza desde el índice ’start’ y
+tiene una longitud máxima ’len’.*/
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
