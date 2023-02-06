@@ -12,8 +12,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
-unsigned long	ft_strlen(char *str);
+#include "libft.h"
 
 char	*ft_strdup(const char *s1)
 {

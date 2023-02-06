@@ -11,10 +11,7 @@
 /* ************************************************************************** */
 
 #include<stdio.h>
-
-int				ft_strncmp(const char *s1, const char *s2, size_t n);
-
-unsigned long	ft_strlen(char *str);
+#include "libft.h"
 
 char	*ft_strnstr(const char	*big, const char *little, size_t len)
 {

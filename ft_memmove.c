@@ -9,8 +9,10 @@
 /*   Updated: 2023/01/17 13:19:25 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include<stdio.h>
 #include<unistd.h>
+#include "libft.h"
 
 void	*ft_memmove(void *str1, const void *str2, size_t n)
 {

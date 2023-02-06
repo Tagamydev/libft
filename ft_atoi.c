@@ -12,6 +12,7 @@
 
 #include<unistd.h>
 #include<stdio.h>
+#include "libft.h"
 
 static int	ft_naruto2(char *str, int i, int r)
 {
@@ -49,7 +50,7 @@ static int	ft_naruto(char *str, int i, int signo, int r)
 	return (r * signo);
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int	r;
 	int	i;
@@ -60,7 +61,7 @@ int	ft_atoi(char *str)
 	r = 0;
 	while (str[i] != '\0')
 	{
-		r = ft_naruto(str, i, signo, r);
+		r = ft_naruto((char *)str, i, signo, r);
 		return (r);
 		++i;
 	}

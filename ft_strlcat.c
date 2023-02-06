@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include<stdio.h>
-
-unsigned long	ft_strlen(char *str);
+#include "libft.h"
 
 static void	ft_chng_str(int i, int i3, const char *s, char *d)
 {

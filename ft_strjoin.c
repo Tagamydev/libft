@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-unsigned long	ft_strlen(char *str);
+#include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

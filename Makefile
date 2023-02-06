@@ -24,7 +24,7 @@ OF		=	*.c makefile libft.h
 GA		=	git add
 GC		=	git commit -m "subiendo prueba"
 
-CFLAGS	= 	-Wextra -Werror -Wall -g3 -fsanitize=address
+CFLAGS	= 	-Wextra -Werror -Wall
 SRC		= \
 			ft_isalpha.c \
 			ft_isdigit.c \
@@ -76,7 +76,7 @@ CYAN	=	\033[0;36m
 RESET	=	\033[0m
 
 #ALL
-all		: 	$(OUT)
+all		: 	$(NAME)
 
 $(MAIN)	:	$(OMAIN)
 			cp $(OMAIN) ./

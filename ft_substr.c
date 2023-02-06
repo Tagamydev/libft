@@ -13,8 +13,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-
-unsigned long	ft_strlen(char *str);
+#include "libft.h"
 
 static char	*ft_ssfull(size_t len, char *sc, int i, char *str)
 {
