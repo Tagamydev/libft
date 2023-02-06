@@ -16,6 +16,9 @@
 seguido de un salto de línea.*/
 void	ft_putendl_fd(char *s, int fd)
 {
-	ft_putstr_fd(s, fd);
-	write (fd, "\n", 1);
+	if (!(!s))
+	{
+		ft_putstr_fd(s, fd);
+		write (fd, "\n", 1);
+	}
 }

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
 /*Envía el número ’n’ al file descriptor dado.*/
 void	ft_putnbr_fd(int n, int fd)
@@ -18,12 +19,12 @@ void	ft_putnbr_fd(int n, int fd)
 	long	nd;
 
 	nd = n;
-	if (nd < 0)
+	if (n < 0)
 	{
 		nd = nd * -1;
-		ft_putchar_fd('-', fd);
+		write(fd, "-", 1);
 	}
 	if (n > 9)
-		ft_putnbr_fd(nd / 10, fd);
+		ft_putnbr_fd((int)(nd / 10), fd);
 	ft_putchar_fd(nd % 10 + '0', fd);
 }
