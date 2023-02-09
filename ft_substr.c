@@ -6,7 +6,7 @@
 /*   By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 15:31:50 by samusanc          #+#    #+#             */
-/*   Updated: 2023/02/09 15:38:44 by samusanc         ###   ########.fr       */
+/*   Updated: 2023/02/09 16:40:30 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 
 	i = 0;
+	if (ft_strlen(s) < start || len == 0)
+		return (ft_strdup(""));
+	if (len > ft_strlen(s) && start == 0)
+		return (ft_strdup((char *)s));
 	str = (malloc(len * sizeof(char)));
-	if (len == 0)
-		return (str);
 	if (!str || !s)
 		return (0);
 	sc = (char *)s;

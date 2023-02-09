@@ -6,7 +6,7 @@
 /*   By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 14:55:42 by samusanc          #+#    #+#             */
-/*   Updated: 2023/02/09 15:26:30 by samusanc         ###   ########.fr       */
+/*   Updated: 2023/02/09 16:44:44 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (!s1)
 		return (ft_strdup(""));
 	if (!set)
-		return ((char *)s1);
+		return (ft_strdup((char *)s1));
 	l = ft_strlen((char *)s1) - 1;
 	if (ft_strncmp((char *)s1, (char *)set, ft_strlen((char *)s1)) == 0)
 		return (ft_strdup(""));
