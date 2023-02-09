@@ -6,21 +6,21 @@
 /*   By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 13:00:50 by samusanc          #+#    #+#             */
-/*   Updated: 2023/01/29 13:00:52 by samusanc         ###   ########.fr       */
+/*   Updated: 2023/02/09 15:37:03 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<stdio.h>
 #include "libft.h"
 
-char	*ft_strnstr(const char	*big, const char *little, size_t len)
+char *ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	char	*a;
 	char	*b;
-	int		i;
+	size_t	i;
 
-	a = (char *)big;
-	b = (char *)little;
+	a = (char *)haystack;
+	b = (char *)needle;
 	i = 0;
 	if (*b == '\0')
 		return (a);
@@ -28,7 +28,7 @@ char	*ft_strnstr(const char	*big, const char *little, size_t len)
 		return (0);
 	if (ft_strlen(b) > ft_strlen(a))
 		return (0);
-	while (a[0] != '\0' && i < (int)len)
+	while (a[0] != '\0' && i < len)
 	{
 		if (ft_strncmp(a, b, ft_strlen(b)) == 0)
 			break ;

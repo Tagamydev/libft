@@ -6,7 +6,7 @@
 #    By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/19 13:35:22 by samusanc          #+#    #+#              #
-#    Updated: 2023/01/20 16:43:09 by samusanc         ###   ########.fr        #
+#    Updated: 2023/02/09 14:38:39 by samusanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,7 +78,7 @@ CYAN	=	\033[0;36m
 RESET	=	\033[0m
 
 #ALL
-all		: 	$(NAME)
+all		: 	$(OUT)
 
 $(MAIN)	:	$(OMAIN)
 			cp $(OMAIN) ./

@@ -6,7 +6,7 @@
 /*   By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 12:31:33 by samusanc          #+#    #+#             */
-/*   Updated: 2023/01/15 12:31:35 by samusanc         ###   ########.fr       */
+/*   Updated: 2023/02/09 14:28:56 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ char			*ft_strrchr(const char *s, int c);
 char			*ft_strdup(const char *s1);
 char			*ft_strnstr(const char	*a, const char *b, size_t len);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
-char			*ft_strtrim(char const *s1, char const *set);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s1, char const *set);
 char			*ft_itoa(int n);

@@ -6,7 +6,7 @@
 /*   By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 14:55:42 by samusanc          #+#    #+#             */
-/*   Updated: 2023/02/06 14:55:43 by samusanc         ###   ########.fr       */
+/*   Updated: 2023/02/09 15:26:30 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,64 +14,66 @@
 #include <stdlib.h>
 #include "libft.h"
 
-/*Elimina todos los caracteres de la string ’set’
-desde el principio y desde el final de ’s1’, hasta
-encontrar un caracter no perteneciente a ’set’. La
-string resultante se devuelve con una reserva de
-malloc(3)*/
-char	*ft_strtrim(char const *s1, char const *set)
+static int	ft_compare_char(char const c, char const *str)
 {
-	char	*str;
-	int		i;
-	int		i2;
-	int		i3;
-	int		i4;
+	int	i;
 
 	i = 0;
-	i2 = 0;
-	i3 = 0;
-	if (!s1)
-		return (0);
-	str = (char *)s1;
-	while (s1[i] != '\0')
+	while (str[i] != '\0')
 	{
-		i2 = 0;
-		while (set[i2] != '\0')
-		{
-			if (s1[i] == set[i2])
-			{
-				++i3;
-				break ;
-			}
-			++i2;
-		}
+		if (c == str[i])
+			return (1);
 		++i;
 	}
-	str = (malloc((ft_strlen((char *)s1) - i3) * sizeof(char)));
+	return (0);
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	
+	int i;
+	int	f;
+	int	l;
+	char *str;
+
+	i = 0;
+	l = 0;
+	f = 0;
+	if (!s1)
+		return (ft_strdup(""));
+	if (!set)
+		return ((char *)s1);
+	l = ft_strlen((char *)s1) - 1;
+	if (ft_strncmp((char *)s1, (char *)set, ft_strlen((char *)s1)) == 0)
+		return (ft_strdup(""));
+	while (s1[i] != '\0')
+	{
+		if (ft_compare_char(s1[i], (char *)set) == 0)
+			break ;
+		++i;
+	}
+	while (l >= 0)
+	{
+		if (ft_compare_char(s1[l], (char *)set) == 0)
+			break ;
+		++f;
+		--l;
+	}
+	l = ft_strlen((char *)s1);
+	if (f > (l - 1) || i > (l - 1))
+		return (ft_strdup(""));
+	str = (malloc((l - (f + i)) - 1 * sizeof(char)));
 	if (!str)
 		return (0);
-	i = 0;
-	i4 = 0;
-	while (s1[i] != '\0')
+	f = l - f;
+	l = 0;
+	i = i + 1;
+	while (i <= f)
 	{
-		i2 = 0;
-		i3 = 0;
-		while (set[i2] != '\0')
-		{
-			if (s1[i] == set[i2])
-			{
-				++i3;
-				break ;
-			}
-			++i2;
-		}
-		if (i3 == 0)
-		{
-			str[i4] = *(char *)(s1 + i);
-			++i4;
-		}
+		str[l] = s1[(i - 1)];
+		++l;
 		++i;
 	}
-	str[i4] = '\0';
+	str[i] = '\0';
 	return (str);
 }

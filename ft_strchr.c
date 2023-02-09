@@ -6,7 +6,7 @@
 /*   By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 15:50:44 by samusanc          #+#    #+#             */
-/*   Updated: 2023/01/26 15:50:46 by samusanc         ###   ########.fr       */
+/*   Updated: 2023/02/08 15:52:31 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@ char	*ft_strchr(const char *s, int c)
 {
 	int	i;
 	int	v;
+	char t;
 
 	i = 0;
 	v = 0;
-	if (c == '\0')
+	t = (char)c;
+	if (t == '\0')
 	{
 		while (*(const char *)(s + v) != '\0')
 			++v;
@@ -27,7 +29,7 @@ char	*ft_strchr(const char *s, int c)
 	}
 	while (*(const char *)(s + i) != '\0')
 	{
-		if (*(const char *)(s + i) == c)
+		if (*(const char *)(s + i) == t)
 		{
 			v = 1;
 			break ;

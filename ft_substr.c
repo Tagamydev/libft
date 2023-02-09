@@ -6,7 +6,7 @@
 /*   By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 15:31:50 by samusanc          #+#    #+#             */
-/*   Updated: 2023/01/31 15:31:53 by samusanc         ###   ########.fr       */
+/*   Updated: 2023/02/09 15:38:44 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
 	char	*sc;
-	int		i;
+	size_t	i;
 
 	i = 0;
 	str = (malloc(len * sizeof(char)));
@@ -55,7 +55,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!str || !s)
 		return (0);
 	sc = (char *)s;
-	while (s[i] != s[start] && i != (int)ft_strlen((char *)s))
+	while (s[i] != s[start] && i != ft_strlen((char *)s))
 	{
 		++sc;
 		++i;
