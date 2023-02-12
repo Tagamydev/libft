@@ -6,7 +6,7 @@
 /*   By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 15:50:44 by samusanc          #+#    #+#             */
-/*   Updated: 2023/02/08 15:52:31 by samusanc         ###   ########.fr       */
+/*   Updated: 2023/02/12 12:09:25 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int	i;
-	int	v;
-	char t;
+	int		i;
+	int		v;
+	char	t;
 
 	i = 0;
 	v = 0;
