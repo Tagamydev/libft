@@ -6,7 +6,7 @@
 /*   By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:55:42 by samusanc          #+#    #+#             */
-/*   Updated: 2023/02/05 10:55:45 by samusanc         ###   ########.fr       */
+/*   Updated: 2023/02/15 16:25:18 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,74 +14,67 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static char	*ft_makestr(char *str, char c)
+int	ft_tn(int n)
 {
-	int		i;
-	char	*tmpstr;
+	static int	a = 0;
 
-	i = 0;
-	while (str[i] != c && str[i] != 0)
-		++i;
-	tmpstr = (malloc(i * sizeof(char)));
-	if (!tmpstr)
-		return (0);
-	i = 0;
-	while (str[i] != c && str[i] != 0)
-	{
-		tmpstr[i] = str[i];
-		++i;
-	}
-	tmpstr[i] = '\0';
-	return (tmpstr);
+	if (n == -1)
+		return (a);
+	a = n;
+	return (a);
 }
 
-static char	**ft_putstr(char **strdstr, char *str, int i, char c)
+void	ft_pstr(int l, int i, const char *s, char **group)
 {
-	int	i2;
+	char	*str;
+	int		a;
+	int		b;
 
-	i2 = 0;
-	strdstr[i2] = ft_makestr(str + (i2), c);
-	++i2;
+	a = ft_tn(-1);
+	b = 0;
+	str = (malloc((l - 1) * sizeof(char)));
+	str[i] = '\0';
+	--i;
+	while (l > 0)
+	{
+		str[l] = s[i];
+		--i;
+		--l;
+	}
+	group[a] = str;
+}
+
+int	ft_count(char const *str, char c, int v, char **group)
+{
+	int i;
+	int	l;
+	int a;
+	
+	i = 0;
+	a = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] == c)
+		l = 0;
+		while (str[i] != '\0')
 		{
-			strdstr[i2] = ft_makestr(str + (i + 1), c);
-			++i2;
+			++l;
+			++i;
+			if (str[i] == c)
+				break ;
 		}
-		++i;
+		if (l > 1)
+		{
+			++a;
+			ft_tn(a);
+			if (v == 1)
+				ft_pstr(l, i, str, group);
+		}
 	}
-	strdstr[i2] = 0;
-	return (strdstr);
+	return (a);
 }
 
-/*Reserva (utilizando malloc(3)) un array de strings
-resultante de separar la string ’s’ en substrings
-utilizando el caracter ’c’ como delimitador. El
-array debe terminar con un puntero NULL.*/
-char	**ft_split(char const *s, char c)
+char **ft_split(char const *s, char c)
 {
-	char	**strdstr;
-	int		i;
-	char	*sc;
-
-	i = 1;
-	sc = (char *)s;
-	if (!s)
-		return (0);
-	while (sc[0] != '\0')
-	{
-		if (sc[0] == c)
-			++i;
-		++sc;
-	}
-	if (i == 1)
-		i = 2;
-	strdstr = (malloc(i * sizeof(char *)));
-	if (!strdstr)
-		return (0);
-	sc = (char *)s;
-	i = 0;
-	strdstr = ft_putstr(strdstr, sc, i, c);
-	return (strdstr);
+	printf("%d", ft_count(s, c, 0, 0));
+	return (0);
 }
