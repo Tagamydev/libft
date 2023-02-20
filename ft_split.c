@@ -6,7 +6,7 @@
 /*   By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:55:42 by samusanc          #+#    #+#             */
-/*   Updated: 2023/02/15 16:25:18 by samusanc         ###   ########.fr       */
+/*   Updated: 2023/02/17 15:20:08 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ void	ft_pstr(int l, int i, const char *s, char **group)
 	str = (malloc((l - 1) * sizeof(char)));
 	str[i] = '\0';
 	--i;
-	while (l > 0)
+	--l;
+	--l;
+	while (l >= 0)
 	{
 		str[l] = s[i];
 		--i;
@@ -64,10 +66,15 @@ int	ft_count(char const *str, char c, int v, char **group)
 		}
 		if (l > 1)
 		{
-			++a;
 			ft_tn(a);
+			++a;
 			if (v == 1)
-				ft_pstr(l, i, str, group);
+			{
+				if (a == 1)
+					ft_pstr(l + 1, i, str, group);
+				else
+					ft_pstr(l, i, str, group);
+			}
 		}
 	}
 	return (a);
@@ -75,6 +82,12 @@ int	ft_count(char const *str, char c, int v, char **group)
 
 char **ft_split(char const *s, char c)
 {
-	printf("%d", ft_count(s, c, 0, 0));
-	return (0);
+	char	**group;
+
+	group = (malloc(ft_count(s, c, 0, 0) * sizeof(char *)));
+	if (!group)
+		return (0);
+	c = ft_count(s, c, 1, group);
+	return (group);
+
 }
