@@ -6,7 +6,7 @@
 /*   By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:55:42 by samusanc          #+#    #+#             */
-/*   Updated: 2023/02/17 15:20:08 by samusanc         ###   ########.fr       */
+/*   Updated: 2023/02/20 15:25:43 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,45 @@ int	ft_count(char const *str, char c, int v, char **group)
 	return (a);
 }
 
+char	**ft_freewilly(char **s)
+{
+	int	i;
+
+	i = 0;
+	while (s)
+	{
+		free(s[i]);
+		s[i] = NULL;
+		++i;
+	}
+	free(s);
+	return (NULL);
+}
+
 char **ft_split(char const *s, char c)
 {
-	char	**group;
+   	char	**group;
+	int		a;
 
+	if	(!s)
+	{
+		group = malloc(1 * sizeof(char **));
+		if (!group)
+			return (NULL);
+		*group = NULL;
+		return (NULL);
+	}
 	group = (malloc(ft_count(s, c, 0, 0) * sizeof(char *)));
 	if (!group)
 		return (0);
 	c = ft_count(s, c, 1, group);
+	a = ft_tn(-1);
+	++a;
+	group[a] = 0;
+	if (!group)
+	{
+		group = ft_freewilly(group);
+	}
 	return (group);
 
 }
