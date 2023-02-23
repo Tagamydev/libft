@@ -3,122 +3,98 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/05 10:55:42 by samusanc          #+#    #+#             */
-/*   Updated: 2023/02/20 15:25:43 by samusanc         ###   ########.fr       */
+/*   Created: 2023/02/22 13:28:39 by samusanc          #+#    #+#             */
+/*   Updated: 2023/02/23 14:02:35 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-int	ft_tn(int n)
-{
-	static int	a = 0;
-
-	if (n == -1)
-		return (a);
-	a = n;
-	return (a);
-}
-
-void	ft_pstr(int l, int i, const char *s, char **group)
+static char	*ft_p_word(char *s, char c)
 {
 	char	*str;
-	int		a;
-	int		b;
+	size_t	l;
+	size_t	i;
 
-	a = ft_tn(-1);
-	b = 0;
-	str = (malloc((l - 1) * sizeof(char)));
-	str[i] = '\0';
-	--i;
-	--l;
-	--l;
-	while (l >= 0)
-	{
-		str[l] = s[i];
-		--i;
-		--l;
-	}
-	group[a] = str;
-}
-
-int	ft_count(char const *str, char c, int v, char **group)
-{
-	int i;
-	int	l;
-	int a;
-	
+	l = 0;
 	i = 0;
-	a = 0;
-	while (str[i] != '\0')
+	while (s[l] && s[l] != c)
+		++l;
+	str = malloc (sizeof(char) * (l + 1));
+	if (!str)
+		return (0);
+	str[l] = '\0';
+	while (i < l)
 	{
-		l = 0;
-		while (str[i] != '\0')
-		{
-			++l;
-			++i;
-			if (str[i] == c)
-				break ;
-		}
-		if (l > 1)
-		{
-			ft_tn(a);
-			++a;
-			if (v == 1)
-			{
-				if (a == 1)
-					ft_pstr(l + 1, i, str, group);
-				else
-					ft_pstr(l, i, str, group);
-			}
-		}
-	}
-	return (a);
-}
-
-char	**ft_freewilly(char **s)
-{
-	int	i;
-
-	i = 0;
-	while (s)
-	{
-		free(s[i]);
-		s[i] = NULL;
+		str[i] = *s;
+		++s;
 		++i;
 	}
-	free(s);
-	return (NULL);
+	return (str);
 }
 
-char **ft_split(char const *s, char c)
+static void	ft_get_str(char *s, char c, char **r)
 {
-   	char	**group;
-	int		a;
+	size_t	i;
 
-	if	(!s)
+	i = 0;
+	while (*s && *s == c)
+		++s;
+	while (*s)
 	{
-		group = malloc(1 * sizeof(char **));
-		if (!group)
-			return (NULL);
-		*group = NULL;
+		r[i] = ft_p_word((char *)s, c);
+		if (!r[i] && r[0])
+		{
+			while (i != 0)
+			{
+				free(r[i]);
+				r[i] = NULL;
+				--i;
+			}
+			free(r);
+			return ;
+		}
+		++i;
+		while (*s && *s != c)
+			++s;
+		while (*s && *s == c)
+			++s;
+	}
+}
+
+static size_t	ft_n_words(char *s, char c)
+{
+	size_t	i;
+
+	i = 0;
+	while (*s && *s == c)
+		++s;
+	while (*s)
+	{
+		++i;
+		while (*s && *s != c)
+			++s;
+		while (*s && *s == c)
+			++s;
+	}
+	return (i);
+}
+
+char	**ft_split(const char *s, char c)
+{
+	char	**r;
+	size_t	l;
+
+	if (!s)
 		return (NULL);
-	}
-	group = (malloc(ft_count(s, c, 0, 0) * sizeof(char *)));
-	if (!group)
+	l = ft_n_words((char *)s, c);
+	r = malloc (sizeof(char *) * (l + 1));
+	if (!r)
 		return (0);
-	c = ft_count(s, c, 1, group);
-	a = ft_tn(-1);
-	++a;
-	group[a] = 0;
-	if (!group)
-	{
-		group = ft_freewilly(group);
-	}
-	return (group);
-
+	r[l] = 0;
+	ft_get_str((char *)s, c, r);
+	return (r);
 }
