@@ -1,79 +1,65 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/06 14:55:42 by samusanc          #+#    #+#             */
-/*   Updated: 2023/02/09 16:44:44 by samusanc         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+# include <stdio.h>
+# include <stdlib.h>
+# include "libft.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "libft.h"
-
-static int	ft_compare_char(char const c, char const *str)
+int	ft_vc(char c, char *s)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
+	while (*s)
 	{
-		if (c == str[i])
+		if (*s == c)
 			return (1);
-		++i;
+		++s;
 	}
 	return (0);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_put_str(char *o, size_t l, char *s)
 {
-	
-	int i;
-	int	f;
-	int	l;
-	char *str;
+	size_t	i;
 
 	i = 0;
-	l = 0;
+	while (i < l)
+	{
+		s[i] = o[i];
+		++i;
+	}
+	return (s);
+}
+
+char	*ft_trim(char *s1, char *set)
+{
+	size_t	i;
+	size_t	f;
+	size_t	l;
+	int		s;
+	char	*r;
+	
+	i = 0;
 	f = 0;
-	if (!s1)
-		return (ft_strdup(""));
-	if (!set)
-		return (ft_strdup((char *)s1));
-	l = ft_strlen((char *)s1) - 1;
-	if (ft_strncmp((char *)s1, (char *)set, ft_strlen((char *)s1)) == 0)
-		return (ft_strdup(""));
-	while (s1[i] != '\0')
-	{
-		if (ft_compare_char(s1[i], (char *)set) == 0)
-			break ;
-		++i;
-	}
-	while (l >= 0)
-	{
-		if (ft_compare_char(s1[l], (char *)set) == 0)
-			break ;
-		++f;
-		--l;
-	}
-	l = ft_strlen((char *)s1);
-	if (f > (l - 1) || i > (l - 1))
-		return (ft_strdup(""));
-	str = (malloc((l - (f + i)) - 1 * sizeof(char)));
-	if (!str)
-		return (0);
-	f = l - f;
 	l = 0;
-	i = i + 1;
-	while (i <= f)
-	{
-		str[l] = s1[(i - 1)];
-		++l;
+	while (s1[i] && ft_vc(s1[i], set) == 1)
 		++i;
-	}
-	str[i] = '\0';
-	return (str);
+	while (s1[l])
+		++l;
+	f = l - 1;
+	while (s1[f] && ft_vc(s1[f], set) == 1)
+		--f;
+	f = (l - 1) - f;
+	s = l - (i + f);
+	if (s < 0)
+		return (NULL);
+	r = malloc (sizeof(char) * (s + 1));
+	if (!r)
+		return (0);
+	r[s] = '\0';
+	return (ft_put_str((s1 + i), f, r));
+}
+
+char *ft_strtrim(char const *s1, char const *set)
+{
+	if (!set || !*set)
+		return (ft_strdup(s1));
+	if (!s1)
+		return (NULL);
+	return (ft_trim((char *)s1, (char *)set));
 }
