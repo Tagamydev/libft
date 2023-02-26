@@ -47,12 +47,12 @@ char	*ft_trim(char *s1, char *set)
 	f = (l - 1) - f;
 	s = l - (i + f);
 	if (s < 0)
-		return (NULL);
+		return (ft_strdup(""));
 	r = malloc (sizeof(char) * (s + 1));
 	if (!r)
-		return (0);
+		return (NULL);
 	r[s] = '\0';
-	return (ft_put_str((s1 + i), f, r));
+	return (ft_put_str((s1 + i), s, r));
 }
 
 char *ft_strtrim(char const *s1, char const *set)
@@ -60,6 +60,12 @@ char *ft_strtrim(char const *s1, char const *set)
 	if (!set || !*set)
 		return (ft_strdup(s1));
 	if (!s1)
-		return (NULL);
+		return (ft_strdup(""));
 	return (ft_trim((char *)s1, (char *)set));
 }
+
+/*
+int	main()
+{
+	printf("%s", ft_strtrim("              ", " "));
+}*/
