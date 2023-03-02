@@ -6,25 +6,20 @@
 /*   By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 16:05:05 by samusanc          #+#    #+#             */
-/*   Updated: 2023/02/08 15:57:01 by samusanc         ###   ########.fr       */
+/*   Updated: 2023/03/02 16:25:03 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+static char	*ft_naruto(const char *s, int c, int i, int v)
 {
-	int		i;
-	int		v;
-
-	i = 0;
 	c = (char)c;
-	while (*(const char *)(s + i) != '\0')
+	while (*(const char *)(s + i))
 		++i;
-	v = 0;
-	if (c == '\0')
+	if (!c)
 	{
-		while (*(const char *)(s + v) != '\0')
+		while (*(const char *)(s + v))
 			++v;
 		return ((char *)s + v);
 	}
@@ -40,4 +35,14 @@ char	*ft_strrchr(const char *s, int c)
 	if (v == 0)
 		return (0);
 	return ((char *)s + i);
+}
+
+char	*ft_strrchr(const char *s, int c)
+{
+	int		i;
+	int		v;
+
+	i = 0;
+	v = 0;
+	return (ft_naruto(s, c, i, v));
 }

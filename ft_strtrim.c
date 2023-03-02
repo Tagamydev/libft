@@ -1,8 +1,31 @@
-# include <stdio.h>
-# include <stdlib.h>
-# include "libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/01 13:25:09 by samusanc          #+#    #+#             */
+/*   Updated: 2023/03/02 16:26:31 by samusanc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int	ft_vc(char c, char *s)
+#include "libft.h"
+
+static int	ft_vc(char c, char *s);
+static char	*ft_put_str(char *o, size_t l, char *s);
+static char	*ft_trim(char *s1, char *set);
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	if (!set || !*set)
+		return (ft_strdup(s1));
+	if (!s1 || !*s1)
+		return (ft_strdup(""));
+	return (ft_trim((char *)s1, (char *)set));
+}
+
+static int	ft_vc(char c, char *s)
 {
 	while (*s)
 	{
@@ -13,7 +36,7 @@ int	ft_vc(char c, char *s)
 	return (0);
 }
 
-char	*ft_put_str(char *o, size_t l, char *s)
+static char	*ft_put_str(char *o, size_t l, char *s)
 {
 	size_t	i;
 
@@ -26,14 +49,14 @@ char	*ft_put_str(char *o, size_t l, char *s)
 	return (s);
 }
 
-char	*ft_trim(char *s1, char *set)
+static char	*ft_trim(char *s1, char *set)
 {
 	size_t	i;
 	size_t	f;
 	size_t	l;
 	int		s;
 	char	*r;
-	
+
 	i = 0;
 	f = 0;
 	l = 0;
@@ -54,16 +77,6 @@ char	*ft_trim(char *s1, char *set)
 	r[s] = '\0';
 	return (ft_put_str((s1 + i), s, r));
 }
-
-char *ft_strtrim(char const *s1, char const *set)
-{
-	if (!set || !*set)
-		return (ft_strdup(s1));
-	if (!s1)
-		return (ft_strdup(""));
-	return (ft_trim((char *)s1, (char *)set));
-}
-
 /*
 int	main()
 {

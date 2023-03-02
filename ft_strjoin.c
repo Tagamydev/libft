@@ -3,47 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+        */
+/*   By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/06 14:55:06 by samusanc          #+#    #+#             */
-/*   Updated: 2023/02/12 12:14:34 by samusanc         ###   ########.fr       */
+/*   Created: 2023/02/26 18:26:37 by samusanc          #+#    #+#             */
+/*   Updated: 2023/03/02 16:10:25 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include "libft.h"
 
-/*Reserva (con malloc(3)) y devuelve una nueva
-string, formada por la concatenación de ’s1’ y
-’s2’.*/
-char	*ft_strjoin(char const *s1, char const *s2)
+static char	*ft_put_str(char *s1, char *s2)
 {
-	char	*str;
-	char	*s1c;
-	char	*s2c;
-	int		i;
+	char				*str;
+	unsigned int		l1;
+	unsigned int		l2;
 
-	s1c = (char *)s1;
-	s2c = (char *)s2;
-	if (!s1)
-		return (0);
-	str = malloc((ft_strlen(s2c) + ft_strlen(s1c)) * sizeof(char));
+	l1 = -1;
+	l2 = -1;
+	str = malloc (sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!str)
-		return (0);
-	i = 0;
-	while (s1c[0] != '\0')
+		return (NULL);
+	str[ft_strlen(s1) + ft_strlen(s2)] = '\0';
+	while (s1[++l1])
 	{
-		str[i] = s1c[0];
-		++i;
-		++s1c;
+		str[l1] = s1[l1];
 	}
-	while (s2c[0] != '\0')
+	while (s2[++l2])
 	{
-		str[i] = s2c[0];
-		++i;
-		++s2c;
+		str[l1++] = s2[l2];
 	}
-	str[i] = '\0';
 	return (str);
 }
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	if (!s1 || !s2)
+		return (NULL);
+	return (ft_put_str((char *)s1, (char *)s2));
+}
+/*
+int	main()
+{
+	printf("%s", ft_strjoin("hola", "adeu"));
+}*/

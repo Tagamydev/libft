@@ -3,66 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/31 15:31:50 by samusanc          #+#    #+#             */
-/*   Updated: 2023/02/09 16:40:30 by samusanc         ###   ########.fr       */
+/*   Created: 2023/03/01 13:58:53 by samusanc          #+#    #+#             */
+/*   Updated: 2023/03/02 13:50:23 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 #include "libft.h"
 
-static char	*ft_ssfull(size_t len, char *sc, int i, char *str)
+char	*ft_make_str(size_t len, char *sc, char *str)
 {
-	if (len > ft_strlen(sc))
-	{
-		while (sc[i] != '\0')
-		{
-			str[i] = sc[i];
-			++i;
-		}
-		str[i] = '\0';
-	}
-	else
-	{
-		while (i != (int)len)
-		{
-			str[i] = sc[i];
-			++i;
-		}
-	}
-	str[i] = '\0';
-	return (str);
-}
-
-/*Reserva (con malloc(3)) y devuelve una substring de
-la string ’s’.
-La substring empieza desde el índice ’start’ y
-tiene una longitud máxima ’len’.*/
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char	*str;
-	char	*sc;
-	size_t	i;
+	size_t		i;
 
 	i = 0;
-	if (ft_strlen(s) < start || len == 0)
-		return (ft_strdup(""));
-	if (len > ft_strlen(s) && start == 0)
-		return (ft_strdup((char *)s));
-	str = (malloc(len * sizeof(char)));
-	if (!str || !s)
-		return (0);
-	sc = (char *)s;
-	while (s[i] != s[start] && i != ft_strlen((char *)s))
+	while (sc[i] && i < len)
 	{
-		++sc;
+		str[i] = sc[i];
 		++i;
 	}
-	i = 0;
-	str = ft_ssfull(len, sc, i, str);
 	return (str);
 }
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char		*str;
+	size_t		max_l;
+
+	if (!s || !*s || start >= ft_strlen((char *)s))
+		return (ft_strdup(""));
+	max_l = ft_strlen((char *)s) - start;
+	if (len > max_l)
+		len = max_l;
+	str = malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (0);
+	str[len] = '\0';
+	return (ft_make_str(len, (char *)(s + start), str));
+}
+/*
+int	main()
+{
+	printf("%s", ft_substr("", 5, 5));
+}*/

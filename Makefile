@@ -6,7 +6,7 @@
 #    By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/19 13:35:22 by samusanc          #+#    #+#              #
-#    Updated: 2023/02/24 14:28:54 by samusanc         ###   ########.fr        #
+#    Updated: 2023/02/27 13:02:37 by samusanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,6 +62,7 @@ SRC		= \
 			ft_putstr_fd.c \
 			ft_putendl_fd.c \
 			ft_strmapi.c \
+			ft_striteri.c \
 
 OBJ		= 	$(SRC:.c=.o)
 

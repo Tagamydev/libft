@@ -3,46 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/05 10:52:52 by samusanc          #+#    #+#             */
-/*   Updated: 2023/02/05 10:52:55 by samusanc         ###   ########.fr       */
+/*   Created: 2023/03/01 13:21:41 by samusanc          #+#    #+#             */
+/*   Updated: 2023/03/02 16:09:36 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "libft.h"
+#include<stdio.h>
+#include<stdlib.h>
 
-static int	ft_powten(int n)
-{
-	int	i;
-	int	t;
-	int	t2;
-
-	i = 1;
-	t = 10;
-	t2 = 10;
-	if (n <= 0)
-		i = 1;
-	while (i != n)
-	{
-		t = t2 * t;
-		++i;
-	}
-	return (t);
-}
-
-static int	ft_intlen(int n)
+static	int	ft_intlen(int n)
 {
 	int	i;
 
 	i = 0;
-	if (n == 0)
-		return (1);
-	if (n < 0)
-		n = n * -1;
-	while (n != 0)
+	if (n <= 0)
+		++i;
+	while (n)
 	{
 		n = n / 10;
 		++i;
@@ -50,67 +28,26 @@ static int	ft_intlen(int n)
 	return (i);
 }
 
-static int	ft_getndigit(int n, int i)
-{
-	int		a;
-	double	d;
-
-	a = 0;
-	if (n < 0)
-		n = n * -1;
-	if (i > ft_intlen(n))
-		return (0);
-	a = ft_powten(ft_intlen(n)) / ft_powten(i);
-	n = n / a;
-	d = n;
-	n = n / 10;
-	d = d / 10;
-	d = d - n;
-	d = d * 10;
-	n = d + 0.5;
-	return (n);
-}
-
-static char	*ft_putstritoa(int i, int n, char *str)
-{
-	if (n < 0)
-	{
-		while (i != (ft_intlen(n) + 1))
-		{
-			str[i] = ft_getndigit(n, i) + '0';
-			++i;
-		}
-	}
-	else
-	{
-		i = 0;
-		while (i != (ft_intlen(n)))
-		{
-			str[i] = ft_getndigit(n, i + 1) + '0';
-			++i;
-		}
-	}
-	str[i] = '\0';
-	return (str);
-}
-
-/*Utilizando malloc(3), genera una string que
-represente el valor entero recibido como argumento.
-Los números negativos tienen que gestionarse.*/
 char	*ft_itoa(int n)
 {
+	long	nf;
+	int		l;
 	char	*str;
-	int		i;
 
-	i = 0;
-	str = (malloc((ft_intlen(n) + 2) * sizeof(char)));
+	nf = (long)n;
+	l = ft_intlen(n);
+	str = malloc (sizeof(char) * (l + 1));
 	if (!str)
-		return (0);
+		return (NULL);
+	if (nf < 0)
+		nf = -nf;
+	str[l] = '\0';
+	while (l--)
+	{
+		str[l] = (nf % 10) + '0';
+		nf = nf / 10;
+	}
 	if (n < 0)
-		str[i] = '-';
-	else
-		str[i] = '+';
-	++i;
-	str = ft_putstritoa(1, n, str);
+		str[0] = '-';
 	return (str);
 }
