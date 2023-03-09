@@ -6,7 +6,7 @@
 #    By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/19 13:35:22 by samusanc          #+#    #+#              #
-#    Updated: 2023/02/27 13:02:37 by samusanc         ###   ########.fr        #
+#    Updated: 2023/03/09 13:31:02 by samusanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,37 +35,37 @@ SRC		= \
 			ft_atoi.c \
 			ft_bzero.c \
 			ft_toupper.c \
+			ft_tolower.c \
+			ft_calloc.c \
+			ft_substr.c \
+			ft_split.c \
+			ft_itoa.c \
 			\
 			ft_memset.c \
 			ft_memcpy.c \
 			ft_memmove.c \
+			ft_memchr.c \
+			ft_memcmp.c \
 			\
 			ft_strlen.c \
 			ft_strlcat.c \
 			ft_strlcpy.c \
-			ft_tolower.c \
-			ft_calloc.c \
 			ft_strchr.c \
 			ft_strrchr.c \
 			ft_strncmp.c \
 			ft_strnstr.c \
-			ft_memchr.c \
-			ft_memcmp.c \
 			ft_strdup.c \
-			ft_substr.c \
 			ft_strjoin.c \
-			ft_split.c \
 			ft_strtrim.c \
-			ft_itoa.c \
+			ft_strmapi.c \
+			ft_striteri.c \
+			\
 			ft_putchar_fd.c \
 			ft_putnbr_fd.c \
 			ft_putstr_fd.c \
 			ft_putendl_fd.c \
-			ft_strmapi.c \
-			ft_striteri.c \
 
 OBJ		= 	$(SRC:.c=.o)
-
 
 # COLORS
 
@@ -107,3 +107,5 @@ commit	:
 			@$(GC)
 
 re		:	fclean all
+
+.PHONY:		all clean fclean re bonus
