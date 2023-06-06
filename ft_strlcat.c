@@ -6,10 +6,10 @@
 /*   By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 16:25:43 by samusanc          #+#    #+#             */
-/*   Updated: 2023/02/09 15:35:48 by samusanc         ###   ########.fr       */
+/*   Updated: 2023/03/09 13:36:30 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include<stdio.h>
+
 #include "libft.h"
 
 static void	ft_chng_str(size_t i, size_t i3, const char *s, char *d)

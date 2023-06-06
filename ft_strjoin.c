@@ -6,11 +6,10 @@
 /*   By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 18:26:37 by samusanc          #+#    #+#             */
-/*   Updated: 2023/03/02 16:10:25 by samusanc         ###   ########.fr       */
+/*   Updated: 2023/03/09 13:36:51 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
-#include <stdio.h>
+
 #include "libft.h"
 
 static char	*ft_put_str(char *s1, char *s2)

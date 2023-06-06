@@ -6,12 +6,11 @@
 /*   By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 13:28:39 by samusanc          #+#    #+#             */
-/*   Updated: 2023/03/01 13:22:15 by samusanc         ###   ########.fr       */
+/*   Updated: 2023/03/09 13:37:53 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 static char	*ft_p_word(char *s, char c)
 {

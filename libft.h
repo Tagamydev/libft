@@ -6,7 +6,7 @@
 /*   By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 12:31:33 by samusanc          #+#    #+#             */
-/*   Updated: 2023/03/09 13:30:09 by samusanc         ###   ########.fr       */
+/*   Updated: 2023/03/09 13:41:56 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <stdio.h>
+# include <limits.h>
 
 int				ft_isalpha(int c);
 int				ft_isdigit(int c);

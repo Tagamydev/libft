@@ -6,11 +6,10 @@
 /*   By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 15:38:56 by samusanc          #+#    #+#             */
-/*   Updated: 2023/01/11 15:38:58 by samusanc         ###   ########.fr       */
+/*   Updated: 2023/03/09 13:40:12 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
 #include "libft.h"
 
 int	ft_isdigit(int c)

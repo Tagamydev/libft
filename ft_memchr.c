@@ -6,11 +6,10 @@
 /*   By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 14:23:09 by samusanc          #+#    #+#             */
-/*   Updated: 2023/01/29 14:23:11 by samusanc         ###   ########.fr       */
+/*   Updated: 2023/03/09 13:39:27 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)

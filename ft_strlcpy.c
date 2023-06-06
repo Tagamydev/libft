@@ -6,10 +6,10 @@
 /*   By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 14:46:28 by samusanc          #+#    #+#             */
-/*   Updated: 2023/02/09 15:31:18 by samusanc         ###   ########.fr       */
+/*   Updated: 2023/03/09 13:36:07 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include<unistd.h>
+
 #include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)

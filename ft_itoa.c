@@ -6,12 +6,11 @@
 /*   By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 13:21:41 by samusanc          #+#    #+#             */
-/*   Updated: 2023/03/02 16:09:36 by samusanc         ###   ########.fr       */
+/*   Updated: 2023/03/09 13:39:55 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
-#include<stdlib.h>
+#include "libft.h"
 
 static	int	ft_intlen(int n)
 {

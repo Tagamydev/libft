@@ -6,12 +6,10 @@
 /*   By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 14:45:19 by samusanc          #+#    #+#             */
-/*   Updated: 2023/01/30 14:45:22 by samusanc         ###   ########.fr       */
+/*   Updated: 2023/03/09 13:37:09 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_strdup(const char *s1)

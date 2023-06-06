@@ -6,12 +6,10 @@
 /*   By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:19:24 by samusanc          #+#    #+#             */
-/*   Updated: 2023/01/17 13:19:25 by samusanc         ###   ########.fr       */
+/*   Updated: 2023/03/09 13:38:49 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
-#include<unistd.h>
 #include "libft.h"
 
 void	*ft_memmove(void *str1, const void *str2, size_t n)

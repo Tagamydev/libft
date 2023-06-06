@@ -6,12 +6,11 @@
 /*   By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 14:53:23 by samusanc          #+#    #+#             */
-/*   Updated: 2023/02/06 14:53:28 by samusanc         ###   ########.fr       */
+/*   Updated: 2023/03/09 13:38:13 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
 /*Envía el carácter ’c’ al file descriptor
 especificado.*/
