@@ -6,7 +6,7 @@
 #    By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/19 13:35:22 by samusanc          #+#    #+#              #
-#    Updated: 2023/03/09 13:31:02 by samusanc         ###   ########.fr        #
+#    Updated: 2023/10/19 10:30:19 by samusanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,8 @@ SRC		= \
 			ft_isalnum.c \
 			ft_isascii.c \
 			ft_isprint.c \
+			\
+			ft_free.c \
 			\
 			ft_atoi.c \
 			ft_bzero.c \
@@ -64,6 +66,15 @@ SRC		= \
 			ft_putnbr_fd.c \
 			ft_putstr_fd.c \
 			ft_putendl_fd.c \
+			\
+			GNL/get_next_line.c \
+			GNL/get_next_line_utils.c \
+			\
+			printf/src/ft_format_char.c \
+			printf/src/ft_format_hex.c \
+			printf/src/ft_format_numbers.c \
+			printf/src/ft_format_string.c \
+			printf/ft_printf.c \
 
 OBJ		= 	$(SRC:.c=.o)
 
@@ -95,10 +106,8 @@ $(OUT)	: 	$(NAME) $(MAINO)
 #CLEAN
 clean	:
 			@rm -f $(OBJ)
-			@echo "$(MAGENTA)===> objects have been removed$(MAGENTA)"
 fclean	:
 			@rm -f $(OBJ) $(NAME) $(OUT) main.o $(MAIN)
-			@echo "$(MAGENTA)===> all clean$(MAGENTA)"
 
 #GIT
 add		:

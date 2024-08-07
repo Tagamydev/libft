@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/25 16:17:17 by samusanc          #+#    #+#             */
-/*   Updated: 2023/03/09 13:42:05 by samusanc         ###   ########.fr       */
+/*   Created: 2023/10/19 10:23:56 by samusanc          #+#    #+#             */
+/*   Updated: 2023/10/19 10:27:09 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "./libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+void	*ft_free(void **str)
 {
-	void	*str;
-
-	if (count == ULONG_MAX || size == ULONG_MAX)
-		return (0);
-	str = (void *)malloc(count * size);
-	if (!str)
-		return (0);
-	ft_bzero(str, count * size);
-	return (str);
+	if (*str)
+	{
+		free(*str);
+		*str = NULL;
+	}
+	return (0);
 }
