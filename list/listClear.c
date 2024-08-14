@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_list.h"
+#include <stdio.h>
 
 void	list_clear(t_list *list)
 {
@@ -19,6 +20,7 @@ void	list_clear(t_list *list)
 	tmp = list->tail;
 	while (tmp)
 	{
+		printf("list size:%d\n", list->size);
 		list_del(list, tmp);
 		tmp = list->tail;
 	}

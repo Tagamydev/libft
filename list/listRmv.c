@@ -51,11 +51,15 @@ void	list_del(t_list *list, t_node *node)
 	t_node	*tmp;
 
 	tmp = list->head;
+	printf("tmp:%p, node:%p\n", tmp, list->head);
 	while (tmp != node && tmp)
 		tmp = tmp->next;
+	printf("1\n");
 	if (!tmp)
 		return ;
+	printf("2\n");
 	list_disconnect(list, tmp);
+	printf("3\n");
 	node_clear(tmp);
 	tmp = NULL;
 }

@@ -21,6 +21,7 @@ void	list_push_f(t_list *list, t_node *node)
 		tmp->back = node;
 	node->next = tmp;
 	list->head = node;
+	list->tail = search_tail(node);
 	list->size++;
 }
 
@@ -33,5 +34,6 @@ void	list_push_b(t_list *list, t_node *node)
 		tmp->next = node;
 	node->back = tmp;
 	list->tail = node;
+	list->head = search_head(node);
 	list->size++;
 }

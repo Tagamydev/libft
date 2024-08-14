@@ -12,12 +12,22 @@
 
 #include "libft.h"
 
+void	*free_str(void *str)
+{
+	free(str);
+	return (NULL);
+}
+
 int	main()
 {
 	t_list	hola;
 
 
-	hola = list();
+	hola = list(NULL);
+	ft_printf("%p, %p, %d\n", hola.head, hola.tail, hola.size);
+	list_push_b(&hola, node((void *)ft_strdup("arriba espana\n"), &free_str));
+	list_clear(&hola);
+	ft_printf("%p, %p, %d\n", hola.head, hola.tail, hola.size);
 
 }
 

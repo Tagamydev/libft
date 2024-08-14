@@ -28,7 +28,8 @@ void	node_clear(t_node *node)
 {
 	if (!node)
 		return ;
-	node->del(node->content);
+	if (node->del)
+		node->del(node->content);
 	ft_bzero(node, sizeof(t_node));
 	free(node);
 }
