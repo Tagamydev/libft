@@ -11,17 +11,24 @@
 /* ************************************************************************** */
 
 #include "ft_list.h"
+#include "libft.h"
 
-void	list_clear(t_list *list)
+t_node	*node(void *content, void *(*del)(void *))
 {
-	t_node			*tmp;
+	t_node	*result;
 
-	tmp = list->tail;
-	while (tmp)
-	{
-		list_del(list, tmp);
-		tmp = list->tail;
-	}
-	list->size = 0;
-	list->head = 0;
+	result = malloc(sizeof(t_node));
+	ft_bzero(result, sizeof(t_node));
+	result->content = content;
+	result->del = del;
+	return (result);
+}
+
+void	node_clear(t_node *node)
+{
+	if (!node)
+		return ;
+	node->del(node->content);
+	ft_bzero(node, sizeof(t_node));
+	free(node);
 }

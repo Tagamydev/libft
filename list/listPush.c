@@ -12,8 +12,7 @@
 
 #include "ft_list.h"
 
-
-void	listPushF(t_list *list, t_node *node)
+void	list_push_f(t_list *list, t_node *node)
 {
 	t_node	*tmp;
 
@@ -24,7 +23,7 @@ void	listPushF(t_list *list, t_node *node)
 	list->size++;
 }
 
-void	listPushB(t_list *list, t_node *node)
+void	list_push_b(t_list *list, t_node *node)
 {
 	t_node	*tmp;
 

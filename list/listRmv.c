@@ -13,18 +13,17 @@
 #include "ft_list.h"
 #include "libft.h"
 
-static t_node	*oneExist(t_node *a, t_node *b)
+static t_node	*one_exist(t_node *a, t_node *b)
 {
 	if (a)
 		return (a);
 	return (b);
 }
 
-static void	listDisconnect(t_list *list, t_node *node)
+static void	list_disconnect(t_list *list, t_node *node)
 {
 	t_node	*tmp_b;
 	t_node	*tmp_n;
-	t_node	*tmp;
 
 	tmp_b = node->back;
 	tmp_n = node->next;
@@ -36,15 +35,18 @@ static void	listDisconnect(t_list *list, t_node *node)
 	if (tmp_n)
 		tmp_n->back = tmp_b;
 	if (!tmp_b && !tmp_n)
-		ft_bezero(list, sizeof(t_list));
+		ft_bzero(list, sizeof(t_list));
 	else
 	{
-		list->head = searchHead(oneExist(tmp_b, tmp_n));
-		list->tail = searchTail(oneExist(tmp_b, tmp_n));
+		list->head = search_head(one_exist(tmp_b, tmp_n));
+		list->tail = search_tail(one_exist(tmp_b, tmp_n));
 	}
 }
 
-void	listDel(t_list *list, t_node *node)
+/*
+	delete a node from a list
+*/
+void	list_del(t_list *list, t_node *node)
 {
 	t_node	*tmp;
 
@@ -53,13 +55,15 @@ void	listDel(t_list *list, t_node *node)
 		tmp = tmp->next;
 	if (!tmp)
 		return ;
-	listDisconnect(list, tmp);
-	tmp->del(tmp->content);
-	ft_bzero(tmp, sizeof(t_node));
-	free(tmp);
+	list_disconnect(list, tmp);
+	node_clear(tmp);
+	tmp = NULL;
 }
 
-t_node	*listPop(t_list *list, t_node *node)
+/*
+	extract a node from a list
+*/
+t_node	*list_pop(t_list *list, t_node *node)
 {
 	t_node	*tmp;
 
@@ -67,7 +71,7 @@ t_node	*listPop(t_list *list, t_node *node)
 	while (tmp != node && tmp)
 		tmp = tmp->next;
 	if (!tmp)
-		return ;
-	listDisconnect(list, tmp);
+		return (NULL);
+	list_disconnect(list, tmp);
 	return (tmp);
 }

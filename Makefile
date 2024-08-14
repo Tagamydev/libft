@@ -80,10 +80,9 @@ SRC		= \
 			./list/listPush.c \
 			./list/listClear.c \
 			./list/list.c \
-			./list/listI.c \
-			./list/listDel.c \
-			./list/listPop.c \
+			./list/listRmv.c \
 			./list/listFind.c \
+			./list/node.c \
 
 OBJ		= 	$(SRC:.c=.o)
 

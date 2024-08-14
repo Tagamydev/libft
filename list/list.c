@@ -12,11 +12,11 @@
 
 #include "ft_list.h"
 
-t_node	*searchHead(t_node *node)
+t_node	*search_head(t_node *node)
 {
 	t_node			*tmp;
 
-	if (!tmp)
+	if (!node)
 		return (NULL);
 	tmp = node;
 	while (tmp->next)
@@ -24,11 +24,11 @@ t_node	*searchHead(t_node *node)
 	return (tmp);
 }
 
-t_node	*searchTail(t_node *node)
+t_node	*search_tail(t_node *node)
 {
 	t_node			*tmp;
 
-	if (!tmp)
+	if (!node)
 		return (NULL);
 	tmp = node;
 	while (tmp->next)
@@ -36,7 +36,7 @@ t_node	*searchTail(t_node *node)
 	return (tmp);
 }
 
-unsigned int	lstSize(t_node *node)
+unsigned int	lst_size(t_node *node)
 {
 	t_node			*tmp;
 	unsigned int	i;
@@ -61,8 +61,8 @@ t_list	list(t_node *node)
 {
 	t_list	result;
 
-	result.head = searchHead(node);
-	result.tail = searchTail(node);
-	result.size = lstSize(result.head);
+	result.head = search_head(node);
+	result.tail = search_tail(node);
+	result.size = lst_size(result.head);
 	return (result);
 }
