@@ -20,7 +20,7 @@ static t_node	*oneExist(t_node *a, t_node *b)
 	return (b);
 }
 
-static void	listDeldisconnect(t_list *list, t_node *node)
+static void	listDisconnect(t_list *list, t_node *node)
 {
 	t_node	*tmp_b;
 	t_node	*tmp_n;
@@ -53,8 +53,21 @@ void	listDel(t_list *list, t_node *node)
 		tmp = tmp->next;
 	if (!tmp)
 		return ;
-	listDeldisconnect(list, tmp);
+	listDisconnect(list, tmp);
 	tmp->del(tmp->content);
 	ft_bzero(tmp, sizeof(t_node));
 	free(tmp);
+}
+
+t_node	*listPop(t_list *list, t_node *node)
+{
+	t_node	*tmp;
+
+	tmp = list->head;
+	while (tmp != node && tmp)
+		tmp = tmp->next;
+	if (!tmp)
+		return ;
+	listDisconnect(list, tmp);
+	return (tmp);
 }
