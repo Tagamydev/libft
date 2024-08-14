@@ -18,6 +18,7 @@
 # include <limits.h>
 # include "printf/ft_printf.h"
 # include "GNL/get_next_line.h"
+# include "ft_list.h"
 
 void			*ft_free(void **str);
 int				ft_isalpha(int c);
