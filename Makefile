@@ -6,16 +6,17 @@
 #    By: samusanc <samusanc@student.42madrid>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/19 13:35:22 by samusanc          #+#    #+#              #
-#    Updated: 2023/10/19 10:30:19 by samusanc         ###   ########.fr        #
+#    Updated: 2024/08/14 11:29:31 by samusanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-OMAIN	=	../main/main.c
+OMAIN	=	./main/main.c
 MAIN	= 	main.c
 HFILES	= 	libft.h
 NAME 	= 	libft.a
 
 CC		= 	gcc
+CC		+=	-I./
 OUT		= 	adeu
 AR		=	ar rcs 
 
@@ -75,6 +76,15 @@ SRC		= \
 			printf/src/ft_format_numbers.c \
 			printf/src/ft_format_string.c \
 			printf/ft_printf.c \
+			./list/listPushB.c \
+			./list/listSwap.c \
+			./list/listPushF.c \
+			./list/listClear.c \
+			./list/list.c \
+			./list/listI.c \
+			./list/listDel.c \
+			./list/listPop.c \
+			./list/listFind.c \
 
 OBJ		= 	$(SRC:.c=.o)
 

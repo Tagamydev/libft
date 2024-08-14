@@ -41,6 +41,7 @@ void	listPushF(t_list list, t_node *node);
 void	listPushB(t_list list, t_node *node);
 void	listClear(t_list list);
 void	listDel(t_list list, t_node *node);
+void	listSwap(t_node *node_a, t_node *node_b);
 t_node	*listPop(t_list list, t_node *node);
 t_node	*listI(unsigned int index);
 t_node	*listFind(t_list list, int *(*f)(void *));
