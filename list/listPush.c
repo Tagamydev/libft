@@ -17,7 +17,8 @@ void	list_push_f(t_list *list, t_node *node)
 	t_node	*tmp;
 
 	tmp = list->head;
-	tmp->back = node;
+	if (tmp)
+		tmp->back = node;
 	node->next = tmp;
 	list->head = node;
 	list->size++;
@@ -28,7 +29,8 @@ void	list_push_b(t_list *list, t_node *node)
 	t_node	*tmp;
 
 	tmp = list->tail;
-	tmp->next = node;
+	if (tmp)
+		tmp->next = node;
 	node->back = tmp;
 	list->tail = node;
 	list->size++;
