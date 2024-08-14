@@ -14,7 +14,10 @@
 
 int	main()
 {
-	ft_printf("hola\n");
+	t_list	hola;
+
+
+	hola = list();
 
 }
 

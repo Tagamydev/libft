@@ -76,9 +76,8 @@ SRC		= \
 			printf/src/ft_format_numbers.c \
 			printf/src/ft_format_string.c \
 			printf/ft_printf.c \
-			./list/listPushB.c \
 			./list/listSwap.c \
-			./list/listPushF.c \
+			./list/listPush.c \
 			./list/listClear.c \
 			./list/list.c \
 			./list/listI.c \

@@ -12,3 +12,15 @@
 
 #include "ft_list.h"
 
+void	listClear(t_list *list)
+{
+	t_node			*tmp;
+
+	tmp = list->tail;
+	while (tmp)
+	{
+		listDel(list, tmp);
+		tmp = list->tail;
+	}
+	return (tmp);
+}
