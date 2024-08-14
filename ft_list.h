@@ -49,5 +49,4 @@ void			list_swap(t_node *node_a, t_node *node_b);
 t_node			*list_pop(t_list *list, t_node *node);
 t_node			*list_find(t_list *list, int *(*f)(void *));
 
-
 #endif
