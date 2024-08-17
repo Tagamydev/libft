@@ -25,9 +25,10 @@ int	main()
 
 	hola = list(NULL);
 	ft_printf("%p, %p, %d\n", hola.head, hola.tail, hola.size);
-	list_push_b(&hola, node((void *)ft_strdup("arriba espana\n"), &free_str));
-	list_clear(&hola);
-	ft_printf("%p, %p, %d\n", hola.head, hola.tail, hola.size);
+	list_push_b(&hola, node((void *)ft_strdup("arriba espana"), &free_str));
+	ft_printf("%s, %s, %d\n", hola.head->content, hola.tail->content, hola.size);
+	list_push_b(&hola, node((void *)ft_strdup("arriba andorra"), &free_str));
+	ft_printf("%s, %s, %d\n", hola.head->content, hola.tail->content, hola.size);
 
 }
 

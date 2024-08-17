@@ -18,10 +18,18 @@ void	list_push_f(t_list *list, t_node *node)
 
 	tmp = list->head;
 	if (tmp)
+	{
 		tmp->back = node;
-	node->next = tmp;
-	list->head = node;
-	list->tail = search_tail(node);
+		node->next = tmp;
+		node->back = NULL;
+		list->head = node;
+	}
+	else
+	{
+		list->head = node;
+		list->tail = node;
+		list->size = 0;
+	}
 	list->size++;
 }
 
@@ -31,9 +39,17 @@ void	list_push_b(t_list *list, t_node *node)
 
 	tmp = list->tail;
 	if (tmp)
+	{
 		tmp->next = node;
-	node->back = tmp;
-	list->tail = node;
-	list->head = search_head(node);
+		node->back = tmp;
+		node->next = NULL;
+		list->tail = node;
+	}
+	else
+	{
+		list->head = node;
+		list->tail = node;
+		list->size = 0;
+	}
 	list->size++;
 }
